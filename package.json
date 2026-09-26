@@ -1,0 +1,43 @@
+{
+  "name": "n8n-nodes-catcaster",
+  "version": "0.1.0",
+  "description": "n8n community nodes for the CatCaster public API (/api/v1)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/picaro/catcaster-n8n.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "prepublishOnly": "npm run build",
+    "test": "npm run build && node --test test/structure.test.mjs"
+  },
+  "keywords": [
+    "n8n-community-node-package",
+    "catcaster",
+    "social-media",
+    "automation"
+  ],
+  "n8n": {
+    "n8nNodesApiVersion": 1,
+    "credentials": [
+      "dist/credentials/CatCasterApi.credentials.js"
+    ],
+    "nodes": [
+      "dist/nodes/CatCaster/CatCaster.node.js"
+    ]
+  },
+  "peerDependencies": {
+    "n8n-workflow": ">=1.0.0"
+  },
+  "devDependencies": {
+    "n8n-workflow": "^1.82.0"
+  }
+}
